@@ -26,7 +26,8 @@ describe("createFullName() tests", () => {
   });
 });
 
-xdescribe("findSmallestNumber() tests", () => {
+//TODO: remove x, this is calling these tests to fail (preventing seeing multiple fails as you're completing it)
+describe("findSmallestNumber() tests", () => {
   it("Should have a return", () => {
     expect(findSmallestNumber(100, 200)).toBeDefined();
   });
@@ -41,7 +42,7 @@ xdescribe("findSmallestNumber() tests", () => {
   });
 });
 
-xdescribe("multiplyNumbers() tests", () => {
+describe("multiplyNumbers() tests", () => {
   it("Should have a return", () => {
     expect(multiplyNumbers(2, 6)).toBeDefined();
   });
@@ -55,7 +56,7 @@ xdescribe("multiplyNumbers() tests", () => {
   });
 });
 
-xdescribe("checkIfNewHighScore() tests", () => {
+describe("checkIfNewHighScore() tests", () => {
   it("Should have a return", () => {
     expect(checkIfNewHighScore(300, 325)).toBeDefined();
   });
@@ -73,7 +74,7 @@ xdescribe("checkIfNewHighScore() tests", () => {
   });
 });
 
-xdescribe("celsiusToFahrenheit() tests", () => {
+describe("celsiusToFahrenheit() tests", () => {
   it("Should have a return", () => {
     expect(celsiusToFahrenheit(15)).toBeDefined();
   });
@@ -87,7 +88,7 @@ xdescribe("celsiusToFahrenheit() tests", () => {
   });
 });
 
-xdescribe("calculateLifeTimeSupply() tests", () => {
+describe("calculateLifeTimeSupply() tests", () => {
   it("Should have a return", () => {
     expect(calculateLifetimeSupply(2, 25, 90)).toBeDefined();
   });
@@ -101,7 +102,7 @@ xdescribe("calculateLifeTimeSupply() tests", () => {
   });
 });
 
-xdescribe("getGrade() tests", () => {
+describe("getGrade() tests", () => {
   it("Should have a return", () => {
     expect(getGrade(70)).toBeDefined();
   });
@@ -144,7 +145,7 @@ xdescribe("getGrade() tests", () => {
   });
 });
 
-xdescribe("calculateAreaOfCircle() tests", () => {
+describe("calculateAreaOfCircle() tests", () => {
   it("Should have a return", () => {
     expect(calculateAreaOfCirlce(3)).toBeDefined();
   });
@@ -164,7 +165,7 @@ xdescribe("calculateAreaOfCircle() tests", () => {
   });
 });
 
-xdescribe("getStudentSummary() tests", () => {
+describe("getStudentSummary() tests", () => {
   it("Should have a return", () => {
     expect(getStudentSummary(70, "John")).toBeDefined();
   });

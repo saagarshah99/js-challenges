@@ -16,9 +16,7 @@
  * @param {string} lastName Smith
  * @returns {string} John Smith
  */
-export const createFullName = (firstName, lastName) => {
-  /* Write your code here */
-};
+export const createFullName = (firstName, lastName) => firstName+" "+lastName;
 
 /**
  * A function that takes two numbers as an input and returns the smallest one.
@@ -28,9 +26,7 @@ export const createFullName = (firstName, lastName) => {
  * @param {number} number2 200
  * @returns {number} 100
  */
-export const findSmallestNumber = (/* Write the parameters here */) => {
-  /* Write your code here */
-};
+export const findSmallestNumber = (number1, number2) => number1 < number2 ? number1: number2;
 
 /**
  * A function that takes two numbers as input, multiplies them together and returns the product.
@@ -40,9 +36,7 @@ export const findSmallestNumber = (/* Write the parameters here */) => {
  * @param {number} number2 6
  * @returns {number} 18
  */
-export const multiplyNumbers = (/* Write the parameters here */) => {
-  /* Write your code here */
-};
+export const multiplyNumbers = (number1, number2) => number1 * number2;
 
 /* Intermediate Challenges */
 
@@ -57,7 +51,15 @@ export const multiplyNumbers = (/* Write the parameters here */) => {
  * @returns {string} "You got a new high score!" | "So close!" | "Better luck next time!"
  */
 export const checkIfNewHighScore = (score, highScore) => {
-  /* Write your code here */
+  if(score > highScore) 
+  {
+    return "You got a new high score!";
+  }
+  else if(score == highScore) 
+  {
+    return "So close!";
+  }
+  return "Better luck next time!";
 };
 
 /**
@@ -66,8 +68,10 @@ export const checkIfNewHighScore = (score, highScore) => {
  * @param {number} tempInCelsius 15
  * @returns {string} "15 degrees celsius is 59 degrees fahrenheit"
  */
-export const celsiusToFahrenheit = (tempInCelsius) => {
-  /* Write your code here */
+export const celsiusToFahrenheit = (tempInCelsius) => 
+{
+  const tempInFahrenheit = tempInCelsius * 9/5 + 32; 
+  return tempInCelsius+" degrees celsius is "+tempInFahrenheit+" degrees fahrenheit";
 };
 
 /**
@@ -80,7 +84,10 @@ export const celsiusToFahrenheit = (tempInCelsius) => {
  * @returns {number} 47450
  */
 export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
-  /* Write your code here */
+  const snickersPerYear = snickersPerDay * 365;
+  const remainingYears = maxAge - age;
+
+  return snickersPerYear * remainingYears;
 };
 
 /* Advanced Challenges */
@@ -100,7 +107,21 @@ export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
  * @returns {string} A - F | Score unavailable
  */
 export const getGrade = (score) => {
-  /* Write your code here */
+  if (score > 100 || score < 0 || typeof(score) != "number") {return "Score unavailable";}
+  else if (score >= 80) {return "A";}
+  else if (score >= 70) {return "B";}  
+  else if (score >= 60) {return "C";}  
+  else if (score >= 50) {return "D";}  
+  else if (score >= 40) {return "E";}  
+  return "F";
+
+  /**
+   * //you typically don't use ranges in switch statements but this would make it work
+   * switch(true)
+   * {
+   *  case(score >= 80): return "A"
+   * }
+   */
 };
 
 /**
@@ -110,7 +131,8 @@ export const getGrade = (score) => {
  * @returns {number} 28.27
  */
 export const calculateAreaOfCirlce = (radius) => {
-  /* Write your code here */
+  const area = (Math.pow(radius, 2) * Math.PI).toFixed(2);
+  return parseFloat(area);
 };
 
 /* Expert Challenge */
@@ -131,5 +153,32 @@ export const calculateAreaOfCirlce = (radius) => {
  * @param {string} name John
  */
 export const getStudentSummary = (score, name) => {
-  /* Write your code here */
+  let message;
+  
+  switch(getGrade(score))
+  {
+    case("A"):
+      message = "Congratulations "+name+"! You achieved a grade of A.";
+      break;
+    case("B"):
+      message = "Well done "+name+"! You achieved a grade of B.";
+      break;
+    case("C"):
+      message = "Nicely done "+name+"! You achieved a grade of C.";
+      break;
+    case("D"):
+      message = "That's okay "+name+". You achieved a grade of D.";
+      break;
+    case("E"):
+      message = "Too bad "+name+". You achieved a grade of E.";
+      break;
+    case("F"):
+      message = "Sorry "+name+". You achieved a grade of F. There's always next year.";
+      break;
+    default:
+      message = "My apologies "+name+", there's been an error in processing your grade.";
+      break;    
+  }
+  
+  return message;  
 };

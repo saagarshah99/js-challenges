@@ -21,8 +21,8 @@
  * @return {string} "Bacon+Lettuce+Tomato"
  */
 
-export const createRecipeString = (ingredientsArr) => {
-  return;
+export const createRecipeString = (ingredientsArr) => {  
+  return ingredientsArr.join("+");
 };
 
 /**
