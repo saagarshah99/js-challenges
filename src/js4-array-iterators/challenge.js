@@ -2,6 +2,8 @@
  *  & calling your own functions.
  */
 
+import { parse } from "@babel/core";
+
 /* 
   All challenges in this repository are seperated into four levels: Foundation, Intermediate, Advanced and Expert.
   The expectation is to complete all Foundation level challenges, with Intermediate and upwards pushing your knowledge
@@ -175,10 +177,21 @@ export const formatString = (string) => {
  * @return {string[]} [ "Fizz", "Buzz", "FizzBuzz", "2" ]
  */
 
-export const fizzBuzz = (mixedArray) => {
-  //const positiveNumbers = mixedArray.filter(item => )
+export const fizzBuzz = (mixedArray) => 
+{
+  const numbers = mixedArray.filter(number => Number(number) && number > 0);
   
-  
-  
-  return;
+  const fizzBuzz = numbers.map((number) => 
+  {
+    let output = "";
+    
+    if(number % 3 === 0) output += "Fizz";
+    if(number % 5 === 0) output += "Buzz";    
+    
+    if(output === "") return number.toString();
+    
+    return output;
+  });
+
+  return fizzBuzz;
 };
