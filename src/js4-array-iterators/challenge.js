@@ -89,10 +89,11 @@ export const createOddEvenArray = (numberString) => {
   
   const oddEven = numberArray.map(number => {
     if(number % 2 == 0) {return "even";}
-
     return "odd";
   }); 
   
+  //alternative: numberArray.map((number) => (number % 2 == 0 ? "even" : "odd"));
+
   return oddEven;
 };
 
@@ -106,7 +107,7 @@ export const createOddEvenArray = (numberString) => {
  */
 
 export const filterBooksBySearch = (booksArr, searchTerm) => {
-  return;
+  return booksArr.filter(book => book.includes(searchTerm));
 };
 
 /**
@@ -126,16 +127,14 @@ export const filterBooksBySearch = (booksArr, searchTerm) => {
  */
 
 export const formatStringArray = (stringArr) => {
-  const cleanedArr = stringArr.forEach((string) => {
+  const cleanedArr = stringArr.map((string) => {
     const cleanStr = string.trim().toLowerCase();
     return cleanStr;
   });
 
   // console.log(???)
 
-  const joinedString = cleanedArr.join("+");
-
-  return joinedString;
+  return cleanedArr.join("+");
 };
 
 /**
@@ -152,7 +151,12 @@ export const formatStringArray = (stringArr) => {
  */
 
 export const formatString = (string) => {
-  return;
+  const removedUnwanted = string.replace(/[^A-Za-z]/g,'').split("");
+
+  return removedUnwanted.map((character, i) => 
+  {
+    return i % 2 == 0 ? character.toUpperCase() : character.toLowerCase()
+  });
 };
 
 /**

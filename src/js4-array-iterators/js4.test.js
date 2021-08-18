@@ -149,7 +149,7 @@ describe("Testing createOddEvenArray()", () => {
   });
 });
 
-xdescribe("Testing filterBooksBySearch()", () => {
+describe("Testing filterBooksBySearch()", () => {
   it("Should return an array", () => {
     expect(Array.isArray(filterBooksBySearch(["one thing"], "one thing"))).toBe(true);
   });
@@ -188,7 +188,7 @@ xdescribe("Testing filterBooksBySearch()", () => {
   });
 });
 
-xdescribe("Testing formatStringArray()", () => {
+describe("Testing formatStringArray()", () => {
   it("Should return a String", () => {
     expect(typeof formatStringArray(["  front"])).toBe("string");
   });
@@ -218,7 +218,7 @@ xdescribe("Testing formatStringArray()", () => {
   });
 });
 
-xdescribe("Testing formatString()", () => {
+describe("Testing formatString()", () => {
   it("Should NOT return undefined", () => {
     expect(formatString("  defined")).toBeDefined();
   });
