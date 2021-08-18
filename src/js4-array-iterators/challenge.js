@@ -10,7 +10,7 @@
 */
 
 /**
- * Foundation Challenges - till 12:45pm (review)
+ * Foundation Challenges
  */
 
 /**
@@ -72,29 +72,20 @@ export const createListOfPoessessions = (possessionsArr, name) => {
  */
 
 export const convertStringToNumbersArray = (numberString) => {
-  const numberArray = numberString.split("+");
-  return numberArray.map(number => parseInt(number));
+  return numberString.split("+").map(number => parseInt(number));
 };
 
 /**
  * A function that takes a string of numbers joined with a "+" and creates a new array based on if the number is even or odd.
  * Every number in the string will need to checked.
  *
+ * Places all of this in there when you hover over the function
  * @param {string} numberString - "1+2+3+4+5"
  * @return {string[]} ['odd', 'even', 'odd', 'even', 'odd']
  */
 
 export const createOddEvenArray = (numberString) => {
-  const numberArray = numberString.split("+").map(number => parseInt(number));
-  
-  const oddEven = numberArray.map(number => {
-    if(number % 2 == 0) {return "even";}
-    return "odd";
-  }); 
-  
-  //alternative: numberArray.map((number) => (number % 2 == 0 ? "even" : "odd"));
-
-  return oddEven;
+  return convertStringToNumbersArray(numberString).map(number => number % 2 === 0? "even" : "odd");
 };
 
 /**
@@ -153,10 +144,12 @@ export const formatStringArray = (stringArr) => {
 export const formatString = (string) => {
   const removedUnwanted = string.replace(/[^A-Za-z]/g,'').split("");
 
-  return removedUnwanted.map((character, i) => 
+  const oddEven = removedUnwanted.map((character, i) => 
   {
-    return i % 2 == 0 ? character.toUpperCase() : character.toLowerCase()
+    return i % 2 === 0 ? character.toUpperCase() : character.toLowerCase()
   });
+
+  return oddEven;
 };
 
 /**
@@ -183,5 +176,9 @@ export const formatString = (string) => {
  */
 
 export const fizzBuzz = (mixedArray) => {
+  //const positiveNumbers = mixedArray.filter(item => )
+  
+  
+  
   return;
 };
