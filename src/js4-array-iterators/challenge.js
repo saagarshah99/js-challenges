@@ -10,7 +10,7 @@
 */
 
 /**
- * Foundation Challenges
+ * Foundation Challenges - till 12:45pm (review)
  */
 
 /**
@@ -22,7 +22,7 @@
  */
 
 export const removeFalseValues = (booleanArr) => {
-  return;
+  return booleanArr.filter(currentBoolean => currentBoolean);
 };
 
 /**
@@ -33,8 +33,8 @@ export const removeFalseValues = (booleanArr) => {
  * @return {string[]} ["100%", "50%", "70%", "25%"]
  */
 
-export const createPercentageList = (numbersArr) => {
-  return;
+export const createPercentageList = (numbersArr) => {  
+  return numbersArr.map(decimal => `${decimal * 100}%`);
 };
 
 /**
@@ -47,7 +47,7 @@ export const createPercentageList = (numbersArr) => {
  */
 
 export const createListOfPoessessions = (possessionsArr, name) => {
-  return;
+  return possessionsArr.map(possession => `${name} ${possession}`);
 };
 
 /**
@@ -72,7 +72,8 @@ export const createListOfPoessessions = (possessionsArr, name) => {
  */
 
 export const convertStringToNumbersArray = (numberString) => {
-  return;
+  const numberArray = numberString.split("+");
+  return numberArray.map(number => parseInt(number));
 };
 
 /**
@@ -84,7 +85,15 @@ export const convertStringToNumbersArray = (numberString) => {
  */
 
 export const createOddEvenArray = (numberString) => {
-  return;
+  const numberArray = numberString.split("+").map(number => parseInt(number));
+  
+  const oddEven = numberArray.map(number => {
+    if(number % 2 == 0) {return "even";}
+
+    return "odd";
+  }); 
+  
+  return oddEven;
 };
 
 /**
