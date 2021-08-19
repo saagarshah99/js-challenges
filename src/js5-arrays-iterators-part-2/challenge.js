@@ -63,7 +63,7 @@ export const sortCharactersAlphabetically = (charcterArr) => {
  */
 
 export const sortNumbersHighToLow = (numberArr) => {
-  return;
+  return numberArr.sort((a,b) => b-a);
 };
 
 /**
@@ -94,7 +94,12 @@ export const checkItemInstock = (toCheck) => {
     "blueberry",
     "melon",
   ];
-  return;
+
+  if(stockList.includes(toCheck))
+  {
+    return toCheck+" is instock, it is on aisle "+stockList.indexOf(toCheck)+".";
+  }
+  return "Sorry "+toCheck+" is not instock.";    
 };
 
 /**
@@ -107,8 +112,14 @@ export const checkItemInstock = (toCheck) => {
  * @return {boolean} false
  */
 
-export const checkPrimaryColours = (coloursArr) => {
-  return;
+export const checkPrimaryColours = (coloursArr) => {  
+  let numberOfPrimary = 0;
+  coloursArr.forEach(colour => 
+  {
+    if(["red", "blue", "yellow"].includes(colour)) numberOfPrimary++;
+  })
+  
+  return numberOfPrimary === coloursArr.length;
 };
 
 /**
@@ -124,8 +135,8 @@ export const checkPrimaryColours = (coloursArr) => {
  * @return {boolean} true
  */
 
-export const checkStringPalindrome = (stringOne) => {
-  return;
+export const checkStringPalindrome = (stringOne) => {  
+  return stringOne == stringOne.split('').reverse().join('');
 };
 
 /**
@@ -139,7 +150,7 @@ export const checkStringPalindrome = (stringOne) => {
  */
 
 export const totalNestedScoresArr = (scoresArr) => {
-  return;
+  return scoresArr.map(score => score.reduce((a, b) => a + b, 0));;
 };
 
 /**

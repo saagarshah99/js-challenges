@@ -94,7 +94,7 @@ describe("Testing sortCharactersAlphabetically()", () => {
 
 });
 
-xdescribe("Testing sortNumbersHighToLow()", () => {
+describe("Testing sortNumbersHighToLow()", () => {
   const lowToHigh = Array(50)
     .fill(1)
     .map((number, index) => (number += index));
@@ -133,7 +133,7 @@ xdescribe("Testing sortNumbersHighToLow()", () => {
 
 });
 
-xdescribe("Testing checkItemInstock()", () => {
+describe("Testing checkItemInstock()", () => {
   const stockList = [
     "apple",
     "banana",
@@ -174,7 +174,7 @@ xdescribe("Testing checkItemInstock()", () => {
   });
 });
 
-xdescribe("Testing checkPrimaryColours()", () => {
+describe("Testing checkPrimaryColours()", () => {
   const rainbowColours = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
   const primaryColours = ["red", "yellow", "blue"];
 
@@ -200,7 +200,7 @@ xdescribe("Testing checkPrimaryColours()", () => {
 
 });
 
-xdescribe("Testing checkStringPalindrome()", () => {
+describe("Testing checkStringPalindrome()", () => {
   it("Should return a Boolean", () => {
     expect(typeof checkStringPalindrome("red", "green")).toBe("boolean");
     expect(typeof checkStringPalindrome("green", "green")).toBe("boolean");
@@ -231,7 +231,7 @@ xdescribe("Testing checkStringPalindrome()", () => {
   });
 });
 
-xdescribe("Testing totalNestedScoresArr()", () => {
+describe("Testing totalNestedScoresArr()", () => {
   const nestedScoreArr = [
     [3, 2, 1],
     [45, 6, 2],
