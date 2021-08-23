@@ -47,15 +47,14 @@ export const setFurnitureStoreLocation = (furniture, location) => {
  * @returns {{name: string, noOfSeats: number, engineType: string, canTravelSolarSystems: boolean}} spaceship - The space ship object
  */
 export const makeSpaceship = (name, noOfSeats, engineType, canTravelSolarSystems) => {
-  const spaceship = 
-  {
+  
+  //returning object directly without defining it as a variable beforehand
+  return {
     name: name,
     noOfSeats: noOfSeats,
     engineType: engineType,
     canTravelSolarSystems: canTravelSolarSystems,
   }
-
-  return spaceship;
 };
 
 /* Intermediate Challenges */
@@ -68,7 +67,9 @@ export const makeSpaceship = (name, noOfSeats, engineType, canTravelSolarSystems
  * @returns {{name: string, username: string}} User - The user object with the same username or a new one
  */
 export const setUserName = (user, username) => {
-  if(user.username === undefined) user.username = username;
+  
+  //essentially checks if username is undefined, null or ""
+  if(!user.username) user.username = username;
   
   return user;
 };
@@ -99,7 +100,7 @@ export const splitFullNameToFirstAndLast = (customer) => {
  * @returns {any} value - The value you have accessed on the object
  */
 export const accessGivenKey = (object, key) => {
-  return object[key];
+  return object[key]; //less common
 };
 
 /* Advanced Challenges */
