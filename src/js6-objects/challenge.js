@@ -139,8 +139,13 @@ export const setSafeAllergens = (customer, allergenList) => {
  * @param {{id: number, name: string, price: number, isAvailable: boolean}} furnitureProductData - All of the data about the furniture product
  * @returns {{id: number, location: string, sku: string, name: string, price: number, isAvailable: boolean}}
  */
-export const mergeFurniture = (furnitureLocationData, furnitureProductData) => {
-  /* Write code here */
 
-  return furnitureLocationData + furnitureProductData;
+export const mergeFurniture = (furnitureLocationData, furnitureProductData) => {
+  const mergedObjects = {};
+
+  for(const key in furnitureLocationData) mergedObjects[key] = furnitureLocationData[key];
+  for(const key in furnitureProductData) mergedObjects[key] = furnitureProductData[key];  
+
+  return mergedObjects;
 };
+
