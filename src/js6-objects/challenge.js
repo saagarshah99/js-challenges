@@ -112,7 +112,7 @@ export const accessGivenKey = (object, key) => {
  * @returns {string} An address string for a shipping label
  */
 export const getUserAddress = (user) => {
-  /* Write code here */
+  return user.address.line1+" "+user.address.line2+" "+user.address.city+" "+user.address.postcode;
 };
 
 /**
@@ -124,7 +124,8 @@ export const getUserAddress = (user) => {
  * @return {{id: number, name: string, allergies: string[], safeAllergens: string[]}} customer
  */
 export const setSafeAllergens = (customer, allergenList) => {
-  /* Write code here */
+  customer.safeAllergens = allergenList.filter(allegern => !customer.allergies.includes(allegern));
+  return customer;
 };
 
 /* Expert Challenge */
@@ -139,4 +140,6 @@ export const setSafeAllergens = (customer, allergenList) => {
  */
 export const mergeFurniture = (furnitureLocationData, furnitureProductData) => {
   /* Write code here */
+
+  return furnitureLocationData + furnitureProductData;
 };
