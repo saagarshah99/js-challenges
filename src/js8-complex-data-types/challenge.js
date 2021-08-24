@@ -69,10 +69,12 @@ export const findMostExpensiveItem = (shoppingBasketArr) => {
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number, totalPrice: number}[]} A new array where each object has had a total price added to it
  */
 export const settotalPrice = (shoppingBasketArr) => {
-  // Write code here
-  const includesTotalPrice = shoppingBasketArr.map(item => item.totalPrice = item.price * item.quantity);
-  // includesTotalPrice.forEach(item => );
-  return includesTotalPrice;
+  return shoppingBasketArr.map(item => 
+  {
+    const spreadingItem = { ...item }; // spreading expands an iterable object
+    spreadingItem.totalPrice = spreadingItem.price * spreadingItem.quantity;
+    return spreadingItem;
+  })
 };
 
 /**
