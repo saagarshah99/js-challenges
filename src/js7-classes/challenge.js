@@ -324,6 +324,8 @@ export class BookShelf {
    * @param {string[]} booksOnShelf - ["JavaScript for Kids", "Learning JavaScript Design Patterns"]
    *
    */
+  
+  // "_" - private key that shouldn't be accessed outside of this class
   constructor(shelfId, booksOnShelf = []) {
     this._shelfId = shelfId;
     this._booksOnShelf = booksOnShelf;
@@ -351,6 +353,10 @@ export class BookShelf {
    */
 
   // WRITE LATEST BOOK GETTER HERE
+  get latestBook()
+  {
+    return this._booksOnShelf[this._booksOnShelf.length-1];
+  }
 
   /**
    * A setter that adds a new book to the list of books.
@@ -358,6 +364,10 @@ export class BookShelf {
    */
 
   // WRITE ADD BOOK TO SHELF SETTER HERE
+  set addBookToShelf(book)
+  {
+    return this._booksOnShelf.push(book);
+  }
 }
 
 /**
@@ -410,7 +420,14 @@ export class BankAccount {
    * @param {string} email
    * @param {number} balance
    */
-  constructor() {}
+  constructor(name, email, balance) 
+  {
+    if(!balance) this._balance = 0;
+    else this._balance = balance;
+
+    this.name = name;
+    this.email = email;
+  }
 
   /**
    * A getter that returns the current balance.
@@ -418,6 +435,10 @@ export class BankAccount {
    */
 
   // WRITE BALANCE GETTER HERE
+  get balance()
+  {
+    return this._balance;
+  }
 
   /**
    * A method that deposits to the balance.
@@ -429,6 +450,22 @@ export class BankAccount {
    */
 
   // WRITE DEPOSIT METHOD HERE
+  deposit(ammountToDeposit)
+  {
+    const converted = +parseFloat(amountToWithdraw);
+    if (!converted || converted<0) return false;
+    return this._balance += converted;
+    
+    
+    // try 
+    // {
+    //   return this._balance += parseFloat(ammountToDeposit)
+    // } 
+    // catch (error) 
+    // {
+    //   return false;
+    // }
+  }
 
   /**
    * A method that withdraws from the balance.
@@ -441,4 +478,24 @@ export class BankAccount {
    */
 
   // WRITE WITH DRAW METHOD HERE
+  // * This parameter can either be a number (2), a number as a string ("2"), or something else ("cheese")
+  // * You will have to handle this in the function.
+  // * You will need to handle negative numbers.
+
+  withdraw(amountToWithdraw)
+  {
+    // try 
+    // {
+    //   return this._balance -= parseFloat(ammountToDeposit)
+    // } 
+    // catch (error) 
+    // {
+    //   return false;
+    // }
+
+
+    const converted = +parseFloat(amountToWithdraw);
+    if (!converted || converted<0) return false;
+    return this._balance -= converted;
+  }
 }
