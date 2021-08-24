@@ -136,7 +136,11 @@ export class Counter {
    * Create an counter.
    * @param {number} count - 50
    */
-  constructor() {}
+  constructor(count) 
+  {
+    if(!count) this.count = 0;
+    else this.count = count;
+  }
 
   /**
    * A method that increments count by 1.
@@ -144,6 +148,7 @@ export class Counter {
    */
 
   // WRITE INCREMENT FUNCTION HERE
+  increment() {return this.count++;}
 
   /**
    * A method that decrements count by 1 but will not go below 0.
@@ -151,6 +156,11 @@ export class Counter {
    */
 
   // WRITE DECREMENT FUNCTION HERE
+  decrement()
+  {
+    if(this.count !== 0) this.count--;
+    return this.count;
+  }
 }
 
 /**
@@ -178,14 +188,20 @@ export class Engine {
   /**
    * Create an engine.
    */
-  constructor() {}
+  constructor() {this.engineIsRunning = false;}
 
   /**
    * Updates engineIsRunning to true and returns a conditonal string based if the engine is already running.
    * @return {string} "Engine has started running" or "Engine is already running"
    */
-  startEngine() {
-    return;
+  startEngine() 
+  {
+    if(!this.engineIsRunning) 
+    {
+      this.engineIsRunning = true;
+      return "Engine has started running";
+    }
+    return "Engine is already running";
   }
 
   /**
@@ -193,7 +209,12 @@ export class Engine {
    * @return {string} "Engine has stopped running" or "Engine has already stopped running"
    */
   stopEngine() {
-    return;
+    if(this.engineIsRunning) 
+    {
+      this.engineIsRunning = false;
+      return "Engine has stopped running";
+    }
+    return "Engine has already stopped running";
   }
 }
 
@@ -235,19 +256,34 @@ export class Modal {
    * @param {string} title - "Error"
    * @param {string} message - "We are currently unable to provide this service"
    */
-  constructor() {}
+  constructor(htmlRef, title, message) 
+  {
+    this.htmlRef = htmlRef;
+    this.title = title;
+    this.message = message;
+  }
 
   /**
    * A method that renders the html for a modal.
    */
 
-  // WRITE RENDER HTML METHOD HERE
+  // WRITE RENDER HTML METHOD HERE - test checks specifically for "correct" indentation
+  renderHtml()
+  {
+    this.htmlRef.innerHTML = `
+    <div class="modal">
+      <h2 class="modal--title">${this.title}</h2>
+      <p class="modal--message">${this.message}</p>
+    </div>
+    `;
+  }
 
   /**
    * A method that toggles a CSS class to either show or hide the modal.
    */
 
   // WRITE DISPLAY MODAL METHOD HERE
+  displayModal() {this.htmlRef.classList.toggle("hide");}
 }
 
 /**

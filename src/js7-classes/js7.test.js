@@ -118,7 +118,7 @@ describe("Testing Loader class", () => {
   });
 });
 
-xdescribe("Testing Counter class", () => {
+describe("Testing Counter class", () => {
   let lowCount, highCount, noCount;
 
   beforeEach(() => {
@@ -220,7 +220,7 @@ xdescribe("Testing Counter class", () => {
   });
 });
 
-xdescribe("Testing Engine class", () => {
+describe("Testing Engine class", () => {
   let engine;
 
   beforeEach(() => {
@@ -285,7 +285,7 @@ xdescribe("Testing Engine class", () => {
   });
 });
 
-xdescribe("Testing Modal class", () => {
+describe("Testing Modal class", () => {
   let modal;
 
   let htmlReference;
