@@ -17,7 +17,7 @@
  * @returns {string[]} A list of the employees quotes for the website
  */
 export const getEmployeeQuotes = (employeeArr) => {
-  // Write code here
+  return employeeArr.map(employee => employee.quote);
 };
 
 /**
@@ -27,7 +27,7 @@ export const getEmployeeQuotes = (employeeArr) => {
  * @returns {{name: string, quote: string, yearsEmployed: number, isManagement: boolean}[]} An array containing only managers
  */
 export const getTheManagers = (employeeArr) => {
-  // Write code here
+  return employeeArr.filter(employee => employee.isManagement);
 };
 
 /**
@@ -37,7 +37,7 @@ export const getTheManagers = (employeeArr) => {
  * @returns {number} The number of the keys on the object
  */
 export const getNumberOfKeys = (object) => {
-  // Write code here
+  return Object.keys(object).length;
 };
 
 /* Intermediate Challenges */
@@ -50,7 +50,7 @@ export const getNumberOfKeys = (object) => {
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number}} The most expensive item in the shopping basket
  */
 export const findMostExpensiveItem = (shoppingBasketArr) => {
-  // Write code here
+  return shoppingBasketArr.sort((a, b) => b.price - a.price)[0]; //descending order, 1st value
 };
 
 /**
@@ -70,6 +70,9 @@ export const findMostExpensiveItem = (shoppingBasketArr) => {
  */
 export const settotalPrice = (shoppingBasketArr) => {
   // Write code here
+  const includesTotalPrice = shoppingBasketArr.map(item => item.totalPrice = item.price * item.quantity);
+  // includesTotalPrice.forEach(item => );
+  return includesTotalPrice;
 };
 
 /**
