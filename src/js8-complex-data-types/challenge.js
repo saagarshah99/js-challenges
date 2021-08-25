@@ -68,10 +68,12 @@ export const findMostExpensiveItem = (shoppingBasketArr) => {
  * @param {{name: string, price: number, hasFreeShipping: boolean, quantity: number}[]} shoppingBasketArr - An array of basket items for an online shop
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number, totalPrice: number}[]} A new array where each object has had a total price added to it
  */
+
+// spreading expands an iterable object
 export const settotalPrice = (shoppingBasketArr) => {
   return shoppingBasketArr.map(item => 
-  {
-    const spreadingItem = { ...item }; // spreading expands an iterable object
+  {    
+    const spreadingItem = {...item}; //using {}s since each item is an object, not an array
     spreadingItem.totalPrice = spreadingItem.price * spreadingItem.quantity;
     return spreadingItem;
   })
@@ -83,8 +85,9 @@ export const settotalPrice = (shoppingBasketArr) => {
  * @param {{name: string, price: number, hasFreeShipping: boolean, quantity: number, totalPrice: number}[]} shoppingBasketArr - An array of basket items for an online shop
  * @returns {number} The total cost of the order
  */
-export const totalShoppingBasket = (shoppingBasketArr) => {
-  // Write code here
+export const totalShoppingBasket = (shoppingBasketArr) => {  
+  const totalPrices = shoppingBasketArr.map(item => {return {...item}.totalPrice;})  
+  return totalPrices.reduce((a, b) => a + b, 0);
 };
 
 /* Advanced Challenges */
@@ -97,7 +100,10 @@ export const totalShoppingBasket = (shoppingBasketArr) => {
  * @returns {{id: number, name: string, ingredients: string[], country: string}[]} An array of cleaned meal objects
  */
 export const getImportantKeys = (mealsArr) => {
-  // Write code here
+  return mealsArr.map(item => 
+  {    
+    return {id: item.id, name: item.name, ingredients: item.ingredients, country: item.country};
+  })
 };
 
 /**
@@ -111,7 +117,16 @@ export const getImportantKeys = (mealsArr) => {
  * @returns {{id: number, name: string, ingredients: string[], country: string, isVegetarian: boolean, timeToCook: number}[]}
  */
 export const setImportantKeys = (mealsArr) => {
-  // Write code here
+  return mealsArr.map(item => 
+  {    
+    const spreadingItem = {...item};
+    
+    if(!spreadingItem.isVegetarian) spreadingItem.isVegetarian = false;
+    else if(!spreadingItem.timeToCook) spreadingItem.timeToCook = 15;
+
+    return spreadingItem;
+  })
+
 };
 
 /* Expert Challenge */
