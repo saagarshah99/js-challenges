@@ -87,7 +87,7 @@ export const settotalPrice = (shoppingBasketArr) => {
  */
 export const totalShoppingBasket = (shoppingBasketArr) => {  
   const totalPrices = shoppingBasketArr.map(item => {return {...item}.totalPrice;})  
-  return totalPrices.reduce((a, b) => a + b, 0);
+  return totalPrices.reduce((a, b) => a + b, 0); //a = accumulator, b = current
 };
 
 /* Advanced Challenges */
@@ -158,5 +158,23 @@ export const setImportantKeys = (mealsArr) => {
  * }[]} A Cleaned array of cocktail data
  */
 export const cleanCocktailResponseData = (cocktailData) => {
-  // Write code here
+  // Write code here 
+  // https://stackoverflow.com/questions/14810506/map-function-for-objects-instead-of-arrays
+
+  // for (let i = 1; i <= 6; i++) 
+  // {
+    
+    
+  // }
+  
+  
+  // return cocktailData.map(item => 
+  // {    
+  //   const spreadingItem = {...item};
+    
+  //   if(!spreadingItem.isVegetarian) spreadingItem.isVegetarian = false;
+  //   else if(!spreadingItem.timeToCook) spreadingItem.timeToCook = 15;
+
+  //   return spreadingItem;
+  // })
 };
